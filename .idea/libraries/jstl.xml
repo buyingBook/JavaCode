@@ -1,0 +1,10 @@
+<component name="libraryTable">
+  <library name="jstl">
+    <CLASSES>
+      <root url="jar://$USER_HOME$/Desktop/2021-1/웹프로그래밍/apache-tomcat-9.0.45/lib/jstl.jar!/" />
+      <root url="jar://$USER_HOME$/Desktop/2021-1/웹프로그래밍/apache-tomcat-9.0.45/lib/standard.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>

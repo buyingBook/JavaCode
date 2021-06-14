@@ -64,4 +64,16 @@ public class Book {
     public void setImageURL(String imageURL) {
         this.imageURL = imageURL;
     }
+
+    @Override
+    public String toString() {
+        return "Book{" +
+                "bookNum=" + bookNum +
+                ", bookName='" + bookName + '\'' +
+                ", bookAuthor='" + bookAuthor + '\'' +
+                ", bookPub='" + bookPub + '\'' +
+                ", bookPrice=" + bookPrice +
+                ", imageURL='" + imageURL + '\'' +
+                '}';
+    }
 }
