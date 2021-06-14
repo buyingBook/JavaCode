@@ -2,7 +2,8 @@
 <html>
 <head>
     <title>금오공과대학교 도서구매 시스템</title>
-    <link href="../../../static/major/major.css" rel="stylesheet" type="text/css">
+    <script type="text/javascript" src="../../../static/major.js"></script>
+    <link href="../../../static/major.css" rel="stylesheet" type="text/css">
 </head>
 <body>
 <jsp:include page= "../layout/header.jsp"/>
@@ -33,9 +34,9 @@
             <div><hr visibility="visible"></div>
             <section id = "purchase">
                 <li id = "choiceZone">
-                    <button id = "minusbtn">-</button>
+                    <button id = "minusbtn" onclick="pushMinus()">-</button>
                     <input id = "cnt" value = 1>
-                    <button id = "plusbtn">+</button>
+                    <button id = "plusbtn" onclick="pushPlus()">+</button>
                     <p id = "totalMoney">${target.bookPrice}</p>
                 </li>
 

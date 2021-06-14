@@ -3,8 +3,8 @@
 <html>
 <head>
     <title>금오공과대학교 도서구매 시스템</title>
-    <link href="../../../static/major/major.css" rel="stylesheet" type="text/css">
-    <script type="text/javascript" src="../../../static/major/major.js"></script>
+    <link href="../../../static/major.css" rel="stylesheet" type="text/css">
+    <script type="text/javascript" src="../../../static/major.js"></script>
 </head>
 <body>
 <jsp:include page= "../layout/header.jsp"/>
