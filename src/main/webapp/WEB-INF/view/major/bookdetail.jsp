@@ -15,7 +15,7 @@
                 <div id = "author"><div id = "authorName">고경희</div> 저 | </div>
                 <div id = "publishing">이지스퍼블리싱</div>
             </div>
-            <img id = "bookImg" src="../../../img/htmlcssBook1.jpg" height="400rem">
+            <img id = "bookImg" src="../../../img/web.jpg" height="400rem">
             <div id = "money"><h3>22,500원</h3></div>
         </div>
 
@@ -46,5 +46,13 @@
         </div>
     </div>
 </section>
+<script>
+    const line = document.getElementById("line");
+    if(matchMedia("(min-width: 768px)").matches) {
+        line.style.visibility = "hidden";
+    } else {
+        line.style.visibility = "visible";
+    }
+</script>
 </body>
 </html>

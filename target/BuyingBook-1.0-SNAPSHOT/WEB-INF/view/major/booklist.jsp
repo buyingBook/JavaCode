@@ -42,7 +42,7 @@
                     <td class = "info">
                         <div class = "name"><strong>html5 + css3 웹 표준의 정석</strong></div>
                         <div class = "maker" style="display: block;">
-                            <div class = "author" style="display: inline">고경희</div> 저 |
+                            <div class = "author" style="display: inline;">고경희</div> 저 |
                             <div class = "publishing">이지스퍼블리싱</div>
                         </div>
                     </td>

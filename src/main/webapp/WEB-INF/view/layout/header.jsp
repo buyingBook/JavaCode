@@ -14,7 +14,7 @@
 </head>
 <body>
 <!-- 헤더 (사이트 설명) -->
-<header>
+<%--<header>--%>
     <div id = "logoHeader">
         <img id="logoImg" src="../../../img/logo.png" width="170px">
         <h2><strong>도서 구매 사이트</strong></h2>
@@ -37,18 +37,13 @@
             <li><a href="#"><h3>마이페이지</h3></a></li>
         </ul>
     </nav>
-</header>
+<%--</header>--%>
 <script>
+    const close = document.getElementById("closebtn");
     if(matchMedia("(min-width: 768px)").matches) {
-        var close = document.getElementById("closebtn");
-        var line = document.getElementById("line");
-        logo.onclick = "none";
         close.style.visibility = "hidden";
-        line.style.visibility = "hidden";
     } else {
-        logo.onclick = "openNav()";
         close.style.visibility = "visible";
-        line.style.visibility = "visible";
     }
 </script>
 </body>

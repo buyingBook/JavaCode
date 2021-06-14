@@ -46,5 +46,13 @@
         </div>
     </div>
 </section>
+<script>
+    const line = document.getElementById("line");
+    if(matchMedia("(min-width: 768px)").matches) {
+        line.style.visibility = "hidden";
+    } else {
+        line.style.visibility = "visible";
+    }
+</script>
 </body>
 </html>
