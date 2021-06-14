@@ -52,8 +52,4 @@ public class FrontController extends HttpServlet{
     private String viewResolver(String viewName) {
         return "/WEB-INF/view/"+viewName+".jsp";
     }
-
-    private String postViewResolver(String viewName) {
-        return "/front" + viewName;
-    }
 }

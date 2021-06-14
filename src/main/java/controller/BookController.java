@@ -50,6 +50,17 @@ public class BookController extends HttpServlet implements Controller{
             modelAndView.getModel().put("pageMaker", pm);
         }
         else if(url.equals("/book/search")) {
+            String major = request.getParameter("major");
+            String grade = request.getParameter("grade");
+            int totalcnt = bookService.totalcnt(major, grade);
+            PageMaker pm = new PageMaker();
+            Criteria cri = new Criteria();
+            ArrayList<Book> books = bookService.findBooks(cri.getPageStart(), major, grade);
+            pm.setCri(cri);
+            pm.setTotalCount(totalcnt);
+            modelAndView.setViewName("major/booksearchresult");
+            modelAndView.getModel().put("books", books);
+            modelAndView.getModel().put("pageMaker", pm);
 
         }
         else if(url.equals("/book/detail")) {

@@ -1,5 +1,6 @@
 package service;
 
+import domain.Book;
 import domain.Lecture;
 import persistence.LectureRepository;
 

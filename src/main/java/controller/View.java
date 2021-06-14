@@ -21,9 +21,4 @@ public class View {
         RequestDispatcher dispatcher = request.getRequestDispatcher(viewPath);//물리? 논리?
         dispatcher.forward(request, response);
     }
-
-    public void doPost(Map<String, Object> model, HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException{
-        model.forEach((key, value) -> request.setAttribute(key, value));
-        response.sendRedirect(viewPath);
-    }
 }

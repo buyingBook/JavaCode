@@ -12,21 +12,23 @@
 <section class = "mainSection">
     <div class = "mainContainer">
         <div class = "optionContainer">
-            <select id = "majors">
-                <option value="all" selected>전체</option>
-                <option value="cse">컴퓨터소프트웨어공학과</option>
-                <option value="machine">토목공학과</option>
-                <option value="chemistry">응용화학과</option>
-                <option value="business">경영학과</option>
-            </select>
-            <select id = "grade">
-                <option value="all" selected>전체</option>
-                <option value="freshman">1학년</option>
-                <option value="sophomore">2학년</option>
-                <option value="junior">3학년</option>
-                <option value="senior">4학년</option>
-            </select>
-            <button id = "searchBtn">검색</button>
+            <form id ="search" action="search">
+                <select id = "majors" name="major">
+                    <option value="all">전체</option>
+                    <option value="cse">컴퓨터소프트웨어공학과</option>
+                    <option value="civil">토목공학과</option>
+                    <option value="chemistry">응용화학과</option>
+                    <option value="business">경영학과</option>
+                </select>
+                <select id = "grade" name="grade">
+                    <option value="all">전체</option>
+                    <option value="1">1학년</option>
+                    <option value="2">2학년</option>
+                    <option value="3">3학년</option>
+                    <option value="4">4학년</option>
+                </select>
+                <button type="submit" id="searchBtn">검색</button>
+            </form>
         </div>
         <div class = "bookListWrapper">
             <table class = "bookList">
