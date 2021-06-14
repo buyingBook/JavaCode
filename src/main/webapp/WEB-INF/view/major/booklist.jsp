@@ -26,6 +26,7 @@
                 <option value="junior">3학년</option>
                 <option value="senior">4학년</option>
             </select>
+            <button id = "searchBtn">검색</button>
         </div>
         <div class = "bookListWrapper">
             <table class = "bookList">
@@ -47,15 +48,15 @@
             </table>
         </div>
         <div class = "pagingContainer">
-            <a href="#">《</a>
-            <a href="#">〈</a>
-            <a class = "select" href="#">1</a>
-            <a href="#">2</a>
-            <a href="#">3</a>
-            <a href="#">4</a>
-            <a href="#">5</a>
-            <a href="#">〉</a>
-            <a href="#">》</a>
+            <c:if test="${pageMaker.prev}">
+                <a href="page?idx=${pageMaker.startPage-1}">〈</a>
+            </c:if>
+            <c:forEach var="num" varStatus="status" begin="${pageMaker.startPage}" end="${pageMaker.endPage}">
+                <a href="page?idx=${status.index}">${status.index}</a>
+            </c:forEach>
+            <c:if test="${pageMaker.next}">
+                <a href="page?idx=${pageMaker.endPage+1}">〉</a>
+            </c:if>
         </div>
     </div>
 </section>

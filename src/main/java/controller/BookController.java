@@ -3,6 +3,8 @@ package controller;
 import java.io.IOException;
 import java.time.LocalDateTime;
 import java.util.ArrayList;
+import java.util.List;
+import java.util.Map;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -12,6 +14,7 @@ import javax.servlet.http.HttpServletResponse;
 
 import domain.*;
 import service.*;
+import util.PageMaker;
 
 @WebServlet(name="BookController", urlPatterns = "/book/*")
 public class BookController extends HttpServlet implements Controller{
@@ -24,12 +27,30 @@ public class BookController extends HttpServlet implements Controller{
         ModelAndView modelAndView = new ModelAndView();
 
         if(url.equals("/book/list")) {
-            ArrayList<Book> books = bookService.findAllBooks();
-            for (int i = 0; i < books.size(); i++) {
-                System.out.println(books.get(i).toString());
-            }
+            int totalcnt = bookService.totalcnt();
+            PageMaker pm = new PageMaker();
+            Criteria cri = new Criteria();
+            ArrayList<Book> books = bookService.findBooks(cri.getPageStart());
+            pm.setCri(cri);
+            pm.setTotalCount(totalcnt);
             modelAndView.setViewName("major/booklist");
             modelAndView.getModel().put("books", books);
+            modelAndView.getModel().put("pageMaker", pm);
+        }
+        else if(url.equals("/book/page")) {
+            int totalcnt = bookService.totalcnt();
+            PageMaker pm = new PageMaker();
+            Criteria cri = new Criteria();
+            cri.setPage(Integer.parseInt(request.getParameter("idx")));
+            ArrayList<Book> books = bookService.findBooks(cri.getPageStart());
+            pm.setCri(cri);
+            pm.setTotalCount(totalcnt);
+            modelAndView.setViewName("major/booklist");
+            modelAndView.getModel().put("books", books);
+            modelAndView.getModel().put("pageMaker", pm);
+        }
+        else if(url.equals("/book/search")) {
+
         }
         else if(url.equals("/book/detail")) {
             String targetId;

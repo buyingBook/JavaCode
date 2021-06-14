@@ -130,11 +130,11 @@ body {font-family: 'Nanum Gothic', 'serif';}
     align-items: center;
 }
 
-#majors {
+#majors, #grade {
     margin-right: 0.5rem;
 }
 
-#majors, #grade {
+#majors, #grade, #searchBtn {
     height: 3rem;
 }
 
