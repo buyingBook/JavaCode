@@ -51,13 +51,13 @@
         </div>
         <div class = "pagingContainer">
             <c:if test="${pageMaker.prev}">
-                <a href="search/page?idx=${pageMaker.startPage-1}">〈</a>
+                <a href="searchfor?major=${subInfo.major}&grade=${subInfo.grade}&idx=${pageMaker.startPage-1}">〈</a>
             </c:if>
             <c:forEach var="num" varStatus="status" begin="${pageMaker.startPage}" end="${pageMaker.endPage}">
-                <a href="search/page?idx=${status.index}">${status.index}</a>
+                <a href="searchfor?major=${subInfo.major}&grade=${subInfo.grade}&idx=${status.index}">${status.index}</a>
             </c:forEach>
             <c:if test="${pageMaker.next}">
-                <a href="search/page?idx=${pageMaker.endPage+1}">〉</a>
+                <a href="searchfor?major=${subInfo.major}&grade=${subInfo.grade}&idx=${pageMaker.endPage+1}">〉</a>
             </c:if>
         </div>
     </div>
