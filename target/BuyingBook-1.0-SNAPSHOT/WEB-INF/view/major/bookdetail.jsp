@@ -41,8 +41,8 @@
                 </li>
 
                 <div id = "control">
-                    <button id = "purchaseBtn">구매하기</button>
-                    <button id = "myCart">장바구니</button>
+                    <button id = "purchaseBtn" onclick="doPay()">구매하기</button>
+                    <button id = "myCart" onclick="doSave()">장바구니</button>
                 </div>
             </section>
         </div>
@@ -54,6 +54,20 @@
         line.style.visibility = "hidden";
     } else {
         line.style.visibility = "visible";
+    }
+
+    function doPay() {
+        let flag = confirm("결제하시겠습니까?");
+        if(flag)
+            alert("결제되었습니다.");
+        else
+            alert("결제가 취소되었습니다.");
+    }
+
+    function doSave() {
+        let flag = confirm("장바구니에 담겼습니다. 장바구니로 이동하시겠습니까?");
+        if(flag)
+            alert("장바구니로 이동합니다.");
     }
 </script>
 </body>

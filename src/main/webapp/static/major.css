@@ -197,61 +197,6 @@ footer {
 }
 
 @media (min-width: 768px) {
-
-    /*header {*/
-    /*    position: relative;*/
-    /*    display: block;*/
-    /*    padding: 1rem;*/
-    /*}*/
-
-    /*header > h2 {*/
-    /*    display: inline;*/
-    /*    padding-left: 1rem;*/
-    /*}*/
-
-
-    /*#menuTrigger{*/
-    /*    display: none;*/
-    /*}*/
-
-
-    /*#menuBar {*/
-    /*    height: 4.7rem;*/
-    /*    width: 100%;*/
-    /*    padding: 0;*/
-    /*    display: block;*/
-    /*    position: relative;*/
-    /*}*/
-
-    /*#menuBar ul {*/
-    /*    list-style-type: none;*/
-    /*    margin: 0;*/
-    /*    padding: 0;*/
-    /*}*/
-
-    /*#menuBar ul:after{*/
-    /*    content:'';*/
-    /*    display: block;*/
-    /*    clear:both;*/
-    /*}*/
-
-    /*#menuBar li {*/
-    /*    width: 25%;*/
-    /*    display: inline;*/
-    /*    text-align: center;*/
-    /*    color: white;*/
-    /*    float: left;*/
-    /*}*/
-
-    /*#menuBar li:hover {*/
-    /*    background: blue;*/
-    /*    color: white;*/
-    /*}*/
-
-    /*.menu ul li a :hover {*/
-    /*    color: white;*/
-    /*}*/
-
     .mainSection {
         padding-top: 3%;
     }

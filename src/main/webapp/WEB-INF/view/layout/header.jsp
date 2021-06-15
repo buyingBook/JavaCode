@@ -32,7 +32,7 @@
         <a href="javascript:void(0)" id="closebtn" class="closebtn" onclick="closeNav()">&times;</a>
         <ul>
             <li><a href="#"><h3>메인화면</h3></a></li>
-            <li><a href="#"><h3>책 구매</h3></a></li>
+            <li><a href="/front/book/list"><h3>책 구매</h3></a></li>
             <li><a href="#"><h3>질의응답</h3></a></li>
             <li><a href="#"><h3>마이페이지</h3></a></li>
         </ul>
