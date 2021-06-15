@@ -8,6 +8,11 @@ public class Lecture {
     private int bookNum;
     private int grade;
 
+    public Lecture(String majorName, int grade) {
+        this.majorName = majorName;
+        this.grade = grade;
+    }
+
     public Lecture(int lectureNum, String lectureName, String majorName, String professor, int bookNum, int grade) {
         this.lectureNum = lectureNum;
         this.lectureName = lectureName;

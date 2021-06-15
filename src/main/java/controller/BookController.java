@@ -26,22 +26,12 @@ public class BookController extends HttpServlet implements Controller{
             throws ServletException, IOException {
         ModelAndView modelAndView = new ModelAndView();
 
-        if(url.equals("/book/list")) {
+        if(url.equals("/book/list") || url.equals("/book/page")) {
             int totalcnt = bookService.totalcnt();
             PageMaker pm = new PageMaker();
             Criteria cri = new Criteria();
-            ArrayList<Book> books = bookService.findBooks(cri.getPageStart());
-            pm.setCri(cri);
-            pm.setTotalCount(totalcnt);
-            modelAndView.setViewName("major/booklist");
-            modelAndView.getModel().put("books", books);
-            modelAndView.getModel().put("pageMaker", pm);
-        }
-        else if(url.equals("/book/page")) {
-            int totalcnt = bookService.totalcnt();
-            PageMaker pm = new PageMaker();
-            Criteria cri = new Criteria();
-            cri.setPage(Integer.parseInt(request.getParameter("idx")));
+            if(url.equals("/book/page"))
+                cri.setPage(Integer.parseInt(request.getParameter("idx")));
             ArrayList<Book> books = bookService.findBooks(cri.getPageStart());
             pm.setCri(cri);
             pm.setTotalCount(totalcnt);
@@ -82,20 +72,18 @@ public class BookController extends HttpServlet implements Controller{
         }
         else if(url.equals("/book/detail")) {
             String targetId;
-            Book booktarget;    Lecture lecturetarget;
-            InfoMapping target;
-            if(request.getMethod().equals("GET")) {
-                modelAndView.setViewName("major/bookdetail");
-                targetId = request.getParameter("id");
-                booktarget = bookService.findTarget(targetId);
-                lecturetarget = lectureService.findTarget(targetId);
-                target = new InfoMapping(lecturetarget.getLectureNum(),
-                        lecturetarget.getLectureName(),lecturetarget.getMajorName(),
-                        lecturetarget.getProfessor(), lecturetarget.getBookNum(), lecturetarget.getGrade(),
-                        booktarget.getBookName(), booktarget.getBookAuthor(), booktarget.getBookPub(),
-                        booktarget.getBookPrice(), booktarget.getImageURL());
-                modelAndView.getModel().put("target", target);
-            }
+            Book booktarget;    Lecture lecturetarget;  InfoMapping target;
+
+            modelAndView.setViewName("major/bookdetail");
+            targetId = request.getParameter("id");
+            booktarget = bookService.findTarget(targetId);
+            lecturetarget = lectureService.findTarget(targetId);
+            target = new InfoMapping(lecturetarget.getLectureNum(),
+                    lecturetarget.getLectureName(),lecturetarget.getMajorName(),
+                    lecturetarget.getProfessor(), lecturetarget.getBookNum(), lecturetarget.getGrade(),
+                    booktarget.getBookName(), booktarget.getBookAuthor(), booktarget.getBookPub(),
+                    booktarget.getBookPrice(), booktarget.getImageURL());
+            modelAndView.getModel().put("target", target);
         }
         else {
             modelAndView.setStatus(HttpServletResponse.SC_NOT_FOUND);
