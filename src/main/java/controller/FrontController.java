@@ -17,7 +17,7 @@ public class FrontController extends HttpServlet{
     private Map<String, Controller> controllerMap = new HashMap<>();
 
     public FrontController() {
-        controllerMap.put("book", new BookController());
+        controllerMap.put("major", new MajorController());
     }
     @Override
     protected void service(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {

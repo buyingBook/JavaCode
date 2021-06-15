@@ -1,6 +1,108 @@
 @import url('https://fonts.googleapis.com/css?family=Nanum+Gothic:400,700,800');
 body {font-family: 'Nanum Gothic', 'serif';}
 
+#totalPrice h1 {
+    display: inline;
+}
+li {
+    list-style-type: none;
+    display: flex;
+    flex-direction: row;
+}
+
+.image {
+    margin-right: 1rem;
+}
+.info {
+    padding-top: 2rem;
+}
+.price {
+    background-color: teal;
+}
+#bookImg {
+    margin-left: 2.5rem;
+}
+#selectGrade, #selectLecture, #search {
+    height: 2.5rem;
+}
+header {
+    display: none;
+    padding: 1rem;
+}
+
+.menu {
+    height: 100%;
+    width: 0;
+    position: fixed;
+    z-index: 1;
+    top: 0;
+    left: 0;
+    background-color: #0099ff;
+    overflow-x: hidden;
+    transition: 0.5s;
+    padding-top: 60px;
+}
+
+.menu a {
+    padding: 8px 8px 8px 32px;
+    text-decoration: none;
+    color: white;
+    display: block;
+    transition: 0.3s;
+}
+
+.menu ul li a :hover {
+    color: black;
+}
+
+.closebtn {
+    position: absolute;
+    color: white;
+    top: 0;
+    right: 25px;
+    font-size: 36px;
+    margin-left: 50px;
+}
+
+#menuTrigger{
+    display:block;
+    padding: 10px;
+    margin: 10px auto;
+    border: 2px  black;
+    color: white;
+    background-color: #0099ff
+}
+
+
+#menuBar {
+    height: 100%;
+    width: 0;
+    position: fixed;
+    z-index: 1;
+    top: 0;
+    left: 0;
+    color: white;
+    background-color: #0099ff;
+    overflow-x: hidden;
+    transition: 0.5s;
+    padding-top: 60px;
+}
+
+#menuBar li {
+    list-style-type: none;
+    color: white;
+    margin: 0;
+    padding: 0;
+}
+#menuBar a {
+    text-decoration: none;
+    display: block;
+}
+
+#menuBar li a {
+    color: white;
+}
+
 .mainSection div {
     display: inline;
 }
@@ -41,11 +143,11 @@ body {font-family: 'Nanum Gothic', 'serif';}
 }
 
 #mainInfo {
-    width: 100%;
+    width: 80%;
 }
 
 #money {
-    width: 100%;
+    width: 80%;
 }
 
 #money h3{
@@ -56,13 +158,6 @@ body {font-family: 'Nanum Gothic', 'serif';}
     text-align: right;
 }
 
-#detailInfo {
-    font-size: 18px;
-    justify-content: center;
-    padding: 1rem;
-    width: 90%;
-}
-
 #purchase {
     display: flex;
     flex-direction: column;
@@ -70,35 +165,26 @@ body {font-family: 'Nanum Gothic', 'serif';}
     justify-content: center;
 }
 
-#choiceZone {
-    display: flex;
-    flex-direction: row;
-    flex-wrap: nowrap;
-    justify-content: center;
-    list-style-type: none;
-    padding-left: 3rem;
-}
-
-#choiceZone input {
+.choice input {
     text-align: right;
-    width: 5rem;
-    height: 2.5rem;
+    width: 3rem;
+    height: 1rem;
     font-size: 16px;
     font-family: 'Nanum Gothic', 'serif';
 }
 
-#choiceZone button {
+.choice button {
     text-align: center;
-    width: 2.5rem;
-    height: 2.5rem;
-    font-size: 20px;
+    width: 1.5rem;
+    height: 1.5rem;
+    font-size: 16px;
 }
 
-#choiceZone p {
-    width: 100%;
+.choice p {
+    display: inline;
     margin-right: 1rem;
     text-align: right;
-    font-size: 18px;
+    font-size: 16px;
 }
 
 #control {
@@ -108,6 +194,7 @@ body {font-family: 'Nanum Gothic', 'serif';}
     flex-wrap: nowrap;
     justify-content: center;
     list-style-type: none;
+    justify-content: center;
 }
 
 #control button {
@@ -161,10 +248,6 @@ body {font-family: 'Nanum Gothic', 'serif';}
     width: 25%;
 }
 
-.price {
-    width: 20%;
-}
-
 .mainContainer .pagingContainer {
     display: flex;
     width: 100%;
@@ -197,11 +280,66 @@ footer {
 }
 
 @media (min-width: 768px) {
+
+    header {
+        position: relative;
+        display: block;
+        padding: 1rem;
+    }
+
+    header > h2 {
+        display: inline;
+        padding-left: 1rem;
+    }
+
+
+    #menuTrigger{
+        display: none;
+    }
+
+
+    #menuBar {
+        height: 4.7rem;
+        width: 100%;
+        padding: 0;
+        display: block;
+        position: relative;
+    }
+
+    #menuBar ul {
+        list-style-type: none;
+        margin: 0;
+        padding: 0;
+    }
+
+    #menuBar ul:after{
+        content:'';
+        display: block;
+        clear:both;
+    }
+
+    #menuBar li {
+        width: 25%;
+        display: inline;
+        text-align: center;
+        color: white;
+        float: left;
+    }
+
+    #menuBar li:hover {
+        background: blue;
+        color: white;
+    }
+
+    .menu ul li a :hover {
+        color: white;
+    }
+
     .mainSection {
         padding-top: 3%;
     }
 
-    .mainContainer .mainInfoContainer {
+    /* .mainContainer .mainInfoContainer {
         margin-left: -3%;
         position: absolute;
         width: 35%;
@@ -211,7 +349,7 @@ footer {
         width: 45%;
         margin-top: 5%;
         margin-left: 50%;
-    }
+    } */
 
     #money h3 {
         width: 75%;
