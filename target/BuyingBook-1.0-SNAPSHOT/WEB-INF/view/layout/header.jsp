@@ -172,8 +172,10 @@
         <h6 style="display: inline">
             <%
                 String name = (String)session.getAttribute("id");
-                if(name != null)
+                if(name != null) {
                     out.print(name + "님 환영합니다.");
+                    out.println("<button class = \"logout\" onclick=\"location.href='\\logout'\">로그아웃</button>");
+                }
             %>
         </h6>
     </div>
@@ -189,7 +191,15 @@
     <nav id = "menuBar" class = "menu">
         <a href="javascript:void(0)" id="closebtn" class="closebtn" onclick="closeNav()">&times;</a>
         <ul>
-            <h4 id ="state" style="display: block;"> <% out.print(name);%>님 환영합니다.</h4>
+            <h4 id ="state" style="display: block;">
+                <%
+                    if(name != null) {
+                        out.print(name+ "님 환영합니다.");
+                        out.println("<button class = \"logout\" onclick=\"location.href='\\logout'\">로그아웃</button>");
+                    }
+                %>
+            </h4>
+
             <li><a href="/front/"><h3>메인화면</h3></a></li>
             <li><a href="/front/major/list"><h3>책 구매</h3></a></li>
             <li><a href="/front/board/list"><h3>질의응답</h3></a></li>
@@ -207,6 +217,7 @@
 <script>
     const close = document.getElementById("closebtn");
     const state = document.getElementById("state");
+    const logout = document.getElementsByClassName("logout");
     if(matchMedia("(min-width: 768px)").matches) {
         close.style.visibility = "hidden";
         state.style.display = "none";
