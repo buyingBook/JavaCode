@@ -8,6 +8,7 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import domain.Board;
 import domain.BuyBook;
@@ -70,7 +71,7 @@ public class MypageController extends HttpServlet implements Controller{
     		{
     			System.out.println("로그인 성공");
     			request.getSession().setAttribute("id", userid); //session에 등록
-    			modelAndView.setViewName("mypageHandler");
+    			modelAndView.setViewName("main");
     		}
     		else
     		{
@@ -79,6 +80,11 @@ public class MypageController extends HttpServlet implements Controller{
     		}
     		
         }
+        else if(url.equals("/mypage/logout")) {
+			HttpSession userSession = request.getSession();
+			userSession.invalidate();
+			modelAndView.setViewName("main");
+		}
         else {
             modelAndView.setStatus(HttpServletResponse.SC_NOT_FOUND);
         }

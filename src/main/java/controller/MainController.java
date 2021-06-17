@@ -17,26 +17,20 @@ import service.*;
 @WebServlet(name="MainController", urlPatterns = "/main/*")
 public class MainController extends HttpServlet implements Controller{
 
-    private final BookService boardService = new BookService();
+    private final BoardService boardService = new BoardService();
+    private final BookService bookService = new BookService();
     private static Book target;
     @Override
     public ModelAndView process(HttpServletRequest request, HttpServletResponse response, String url)
             throws ServletException, IOException {
         ModelAndView modelAndView = new ModelAndView();
 
-        if(url.equals("/main/list")) {
-            if(request.getMethod().equals("GET")) {
-                modelAndView.setViewName("major/booklist");
-            }
-
-        }
-        else if(url.equals("/main/detail")) {
-            if(request.getMethod().equals("GET")) {
-                modelAndView.setViewName("major/bookdetail");
-            }
-            else if(request.getMethod().equals("POST")) {
-
-            }
+        if(url.equals("/main")) {
+            ArrayList<Book> books = bookService.findBooks(0);
+            ArrayList<Board> boards = boardService.findBoards(0);
+            modelAndView.setViewName("main");
+            modelAndView.getModel().put("books", books);
+            modelAndView.getModel().put("boards", boards);
         }
         else {
             modelAndView.setStatus(HttpServletResponse.SC_NOT_FOUND);

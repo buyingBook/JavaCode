@@ -39,7 +39,6 @@ public class BoardController extends HttpServlet implements Controller{
                 cri.setPage(Integer.parseInt(request.getParameter("idx")));
             ArrayList<Board> boards = boardService.findBoards(cri.getPageStart());
             for(int i = 0; i < boards.size(); i++)
-                System.out.println(boards.get(i).toString());
             pm.setCri(cri);
             pm.setTotalCount(totalcnt);
             modelAndView.setViewName("/board/board-list");

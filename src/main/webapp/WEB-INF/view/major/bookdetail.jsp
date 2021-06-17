@@ -42,16 +42,19 @@
             font-family: 'Nanum Gothic', 'serif';
         }
 
+        #control form {
+            width: 100%;
+        }
         #control form button {
             display: inline;
-            width: 45%;
             height: 2.5rem;
             color: white;
             background-color: #0099ff;
             font-family: 'Nanum Gothic', 'serif';
-            font-size: 20px;
+            font-size: 16px;
             margin: 1%;
         }
+
         #selectGrade, #selectLecture, #search {
             height: 2.5rem;
         }
@@ -59,7 +62,11 @@
             display: none;
             padding: 1rem;
         }
-
+        @media (min-width: 768px) {
+            .choice {
+                margin-left: 2rem;
+            }
+        }
     </style>
     <script>
         let myChoice = [];
@@ -294,6 +301,6 @@
         }
         return false;
     }
-</>
+</script>
 </body>
 </html>
