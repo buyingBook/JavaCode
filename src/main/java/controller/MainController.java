@@ -25,9 +25,9 @@ public class MainController extends HttpServlet implements Controller{
             throws ServletException, IOException {
         ModelAndView modelAndView = new ModelAndView();
 
-        if(url.equals("/main/list")) {
-            ArrayList<Book> books = bookService.findBooks(1);
-            ArrayList<Board> boards = boardService.findBoards(1);
+        if(url.equals("/main")) {
+            ArrayList<Book> books = bookService.findBooks(0);
+            ArrayList<Board> boards = boardService.findBoards(0);
             modelAndView.setViewName("main");
             modelAndView.getModel().put("books", books);
             modelAndView.getModel().put("boards", boards);

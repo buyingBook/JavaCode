@@ -152,7 +152,7 @@
     </style>
     <script>
         function goToMain() {
-            location = "/front/";
+            location = "/front/main";
         }
     </script>
 </head>
@@ -193,7 +193,7 @@
                 %>
             </h4>
 
-            <li><a href="/front/"><h3>메인화면</h3></a></li>
+            <li><a href="/front/main"><h3>메인화면</h3></a></li>
             <li><a href="/front/major/list"><h3>책 구매</h3></a></li>
             <li><a href="/front/board/list"><h3>질의응답</h3></a></li>
             <li><a href="/front/mypage"><h3>

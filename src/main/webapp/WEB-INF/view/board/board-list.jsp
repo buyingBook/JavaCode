@@ -31,6 +31,30 @@
             border-bottom-color: #e5e5e5;
             background: #faf9fa;
         }
+
+        .mainContainer .pagingContainer {
+            display: flex;
+            width: 100%;
+            height: 5rem;
+            flex-direction: row;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .mainContainer .pagingContainer a {
+            display: inline-block;
+            font-weight: bold;
+            padding: 5px 8px;
+            border: 1px solid #ccc;
+            color: #000;
+            background-color: #0099ff;
+            text-decoration: none;
+        }
+
+        .mainContainer .pagingContainer a .select{
+            color: #fff;
+            background-color: #0099ff;
+        }
     </style>
 </head>
 <body>
