@@ -169,6 +169,13 @@
     <div id = "logoHeader">
         <img id="logoImg" src="../../../img/logo.png" width="170px" ondblclick="goToMain()">
         <h2><strong>도서 구매 사이트</strong></h2>
+        <h6 style="display: inline">
+            <%
+                String name = (String)session.getAttribute("id");
+                if(name != null)
+                    out.print(name + "님 환영합니다.");
+            %>
+        </h6>
     </div>
 
     <!-- 매뉴바 -->
@@ -182,19 +189,30 @@
     <nav id = "menuBar" class = "menu">
         <a href="javascript:void(0)" id="closebtn" class="closebtn" onclick="closeNav()">&times;</a>
         <ul>
+            <h4 id ="state" style="display: block;"> <% out.print(name);%>님 환영합니다.</h4>
             <li><a href="/front/"><h3>메인화면</h3></a></li>
             <li><a href="/front/major/list"><h3>책 구매</h3></a></li>
             <li><a href="/front/board/list"><h3>질의응답</h3></a></li>
-            <li><a href="/front/mypage"><h3>마이페이지</h3></a></li>
+            <li><a href="/front/mypage"><h3>
+                <%
+                    if(name == null)
+                        out.print("로그인");
+                    else
+                        out.print("마이페이지");
+                %>
+            </h3></a></li>
         </ul>
     </nav>
 <%--</header>--%>
 <script>
     const close = document.getElementById("closebtn");
+    const state = document.getElementById("state");
     if(matchMedia("(min-width: 768px)").matches) {
         close.style.visibility = "hidden";
+        state.style.display = "none";
     } else {
         close.style.visibility = "visible";
+        state.style.display = "block";
     }
 </script>
 </body>
