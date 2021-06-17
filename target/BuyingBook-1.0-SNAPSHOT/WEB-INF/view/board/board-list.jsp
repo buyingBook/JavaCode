@@ -11,6 +11,27 @@
 <head>
     <title>금오공과대학교 도서구매 시스템</title>
     <link href="../../../static/layout.css" rel="stylesheet" type="text/css">
+    <style>
+        #table td {
+            padding : 5px;
+            text-align : center;
+            border-bottom : 1px;
+            border-bottom-style : solid;
+            border-bottom-color: #e5e5e5;
+        }
+
+        #table th {
+            border-top : 1px;
+            border-top-style : solid;
+            border-top-color : #e5e5e5;
+            padding : 5px;
+            text-align : center;
+            border-bottom : 1px;
+            border-bottom-style : solid;
+            border-bottom-color: #e5e5e5;
+            background: #faf9fa;
+        }
+    </style>
 </head>
 <body>
 <jsp:include page="../layout/header.jsp"/>
@@ -22,15 +43,14 @@
                 <form action="list" method="get" align="center">
                     <input type="text" name="serchText" /> <input type="submit" value="검색" />
                 </form>
-                <table width="auto" border="3" bordercolor="lightgray" align="center">
+                <table width="100%" align="center">
                     <thead>
                     <tr>
-                        <td>no</td>
-                        <td>제 목</td>
-                        <td>글쓴이</td>
-                        <td>작성일</td>
-                        <td>조회수</td>
-
+                        <th width="5%">no</th>
+                        <th width="40%">제 목</th>
+                        <th width="20%">글쓴이</th>
+                        <th width="20%">작성일</th>
+                        <th width="15%">조회수</th>
                     </tr>
                     </thead>
                     <c:forEach var="board" items="${boards}">

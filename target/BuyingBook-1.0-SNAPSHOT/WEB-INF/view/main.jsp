@@ -1,3 +1,4 @@
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%--
   Created by IntelliJ IDEA.
   User: 박유경
@@ -9,8 +10,31 @@
 <html>
 <head>
     <title>금오공과대학교 도서구매 시스템</title>
-    <link href="../../static/major.css" rel="stylesheet" type="text/css">
-    <script type="text/javascript" src="../../static/major.js"></script>
+    <link href="../../../static/major/major.css" rel="stylesheet" type="text/css">
+    <script type="text/javascript" src="../../../static/major/major.js"></script>
+
+	<style>
+ 
+		table{
+			border: 1px solid; border-collapse: collapse; text-align: center;
+		}
+
+		th, td{ border: 1px solid; padding: 10px 5px;}
+
+		th{background-color: rgba(7, 100, 100, 0); color: rgb(0, 0, 0);}
+
+		/* 짝수줄만 배경색을 다르게 */
+
+		td:nth-child(1){width: 40%}
+		th{border-bottom: double rgb(0, 0, 0);}
+
+		/* 직접 만들지 않았지만 그래서 보이지는 않지만 실제 */
+		/* 테이블 안에 첫번째 자식은 tr이 아니라 tbody라는 녀석임 */
+		table tr{color: rgb(0, 0, 0);}
+
+	</style>
+
+
 </head>
 <body>
 <jsp:include page= "layout/header.jsp"/>
@@ -20,51 +44,43 @@
         <div class = "optionContainer">
             <img src="../../img/main.jpg" width="100%">
         </div>
-        <div class = "bookListWrapper">
-        <table border="1">
-	      	 <tr>
+        <div class = "MainListWrapper1">
+        <table border="1" width = "40%" style = "float:left; margin-left:10%;">
+			<caption> 책 구매 게시판 </caption>
+			<tr>
 	            <th>번호</th>
 	            <th>제목</th>
 	            <th>글쓴이</th>
 	            <th>가격</th>
 	        </tr>
-        <!-- forEach 문은 리스트 객체 타입을 꺼낼때 많이 활용된다. -->
-	        <c:forEach var="row" items="${list}">
+	        <c:forEach var="row" items="${books}">
 	        <tr>
-	            <!-- 컨트롤러에서 넘겨준 list 모델 객체를 쓰는 방법을 잘 익혀두자 -->
-	            <td>${row.cid}</td>
+	    
+	            <td>${row.bookNum}</td>
 	            <td>${row.bookName}</td>
 	            <td>${row.bookAuthor}</td>
 	            <td>${row.bookPrice}</td>
-	<!--               <td>
-	                 데이터 타입을 사용하는 방법 --
-	              <fmt:formatDate value="${row.regdate}" pattern="yyyy-MM-dd HH:mm:ss" />
-	            </td>
-	            <td>${row.viewcnt}</td> -->
 	        </tr>
         </c:forEach>
     	</table>
         </div>
-			<table border="1">
-		        <tr>
+		<div class = "MainListWrapper2">
+			<table border="1" width = "40%" style = "float:right; margin-right:10%;">
+		        <caption> 질의응답 게시판 </caption>
+				<tr>
 		            <th>번호</th>
 		            <th>제목</th>
 		        </tr>
-		        <!-- forEach 문은 리스트 객체 타입을 꺼낼때 많이 활용된다. -->
-		        <c:forEach var="row" items="${list}">
+		      
+		        <c:forEach var="row" items="${boards}">
 		        <tr>
-		            <!-- 컨트롤러에서 넘겨준 list 모델 객체를 쓰는 방법을 잘 익혀두자 -->
-		            <td>${row.bno}</td>
+		            <td>${row.id}</td>
 		            <td>${row.title}</td>
-		<!--        <td>
-
-		              <fmt:formatDate value="${row.regdate}" pattern="yyyy-MM-dd HH:mm:ss" />
-		            </td>
-		            <td>${row.viewcnt}</td> --> 
 		        </tr>
 	        </c:forEach>
 	    </table>
-    </div>
+		</div>
+
 </section>
 </body>
 </html>
