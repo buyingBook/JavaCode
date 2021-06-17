@@ -19,7 +19,7 @@
                             <img src="${major.imageURL}" width="100%">
                         </td>
                         <td class = "info">
-                            <div class = "name"><a href="detail?id=${major.majorId}"><strong>${major.majorName}</strong></a></div>
+                            <div class = "name"><a href="board/detail?id=${major.majorId}"><strong>${major.majorName}</strong></a></div>
                         </td>
                     </tr>
                 </c:forEach>

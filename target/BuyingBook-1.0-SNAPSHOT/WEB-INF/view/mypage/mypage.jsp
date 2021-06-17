@@ -296,7 +296,27 @@
         <div class="main_box">
           <div class="main_box_header">내가 쓴 글</div>
           <div class="main_box_content">
-            
+              <table width="auto" border="3" bordercolor="lightgray" align="center">
+                  <thead>
+                  <tr>
+                      <td>no</td>
+                      <td>제 목</td>
+                      <td>글쓴이</td>
+                      <td>작성일</td>
+                      <td>조회수</td>
+
+                  </tr>
+                  </thead>
+              <c:forEach var="writingList" items="${writingLists}">
+                  <tr>
+                      <td>${writingList.id}</td>
+                      <td><a href="board/detail?id=${writingList.id}">${writingList.title}</a></td>
+                      <td>${writingList.writer}</td>
+                      <td>${writingList.regdate}</td>
+                      <td>${writingList.hit}</td>
+                  </tr>
+              </c:forEach>
+              </table>
           </div>
         </div>
 

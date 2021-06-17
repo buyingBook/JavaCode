@@ -9,6 +9,11 @@ public class Criteria {
         this.perPageNum = 5;
     }
 
+    public Criteria(int perPageNum) {
+        this.page = 1;
+        this.perPageNum = perPageNum;
+    }
+
     public int getPageStart() {
         return (this.page - 1) * perPageNum;
     }

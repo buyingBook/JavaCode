@@ -2,12 +2,15 @@ package service;
 
 import java.util.ArrayList;
 
+import domain.Board;
 import domain.BuyBook;
 import domain.Member;
+import persistence.BoardRepository;
 import persistence.MypageRepository;
 
 public class MypageService {
 	private final MypageRepository mypageRepository = MypageRepository.getInstacne();
+	private final BoardRepository boardRepository = BoardRepository.getInstacne();
 	public MypageService() {
 		
 	}
@@ -35,8 +38,9 @@ public class MypageService {
         return mypageRepository.getShoppingList(id);
     }
 
-	
-	//내가쓴 게시글 조회
-	
+    //내가쓴 게시글 조회
+	public ArrayList<Board> displayWritingList(String id) {
+		return boardRepository.findByOwnId(id);
+	}
 	
 }

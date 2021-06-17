@@ -19,6 +19,7 @@ public class FrontController extends HttpServlet{
     public FrontController() {
         controllerMap.put("main", new MainController());
         controllerMap.put("major", new MajorController());
+        controllerMap.put("board", new BoardController());
         controllerMap.put("mypage", new MypageController());
     }
     @Override

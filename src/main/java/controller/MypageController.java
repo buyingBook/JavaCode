@@ -9,6 +9,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import domain.Board;
 import domain.BuyBook;
 import domain.Member;
 import service.MypageService;
@@ -46,12 +47,13 @@ public class MypageController extends HttpServlet implements Controller{
      			
      			ArrayList<BuyBook> purchaseList = mypageService.displayPurchaseList(id);
      			ArrayList<BuyBook> shoppingList = mypageService.displayShoppingList(id);
+     			ArrayList<Board> writingList = mypageService.displayWritingList(id);
      			
      			modelAndView.setViewName("mypage/mypage");
      			modelAndView.getModel().put("member", member);
      			modelAndView.getModel().put("purchaseLists", purchaseList);
      			modelAndView.getModel().put("shoppingLists", shoppingList);
-        		
+        		modelAndView.getModel().put("writingLists", writingList);
         	}
         	
  			
