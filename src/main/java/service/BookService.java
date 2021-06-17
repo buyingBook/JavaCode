@@ -1,6 +1,7 @@
 package service;
 
 import domain.Book;
+import domain.Major;
 import persistence.BookRepository;
 
 import java.util.ArrayList;
@@ -43,6 +44,14 @@ public class BookService {
             return bookRepository.findAll(idx, major, grade);
     }
 
+    public ArrayList<Book> findAllBooks() {
+        return bookRepository.findAll();
+    }
+
+    public ArrayList<Book> findBooks(ArrayList<Integer> ids) {
+        return bookRepository.findBooks(ids);
+    }
+
     public Book findTarget(String id) {
         return bookRepository.findById(Integer.parseInt(id));
     }
@@ -66,5 +75,9 @@ public class BookService {
             case "4": return 4;
             default: return -1;
         }
+    }
+
+    public ArrayList<Book> findBooks(Major major) {
+        return bookRepository.findBooks(major);
     }
 }

@@ -46,36 +46,23 @@ public class MajorController extends HttpServlet implements Controller{
 
         else if(url.equals("/major/detail")) {
             String id = request.getParameter("id");
-            System.out.println(id);
+            Major major = majorService.findById(id);
+            ArrayList<Lecture> lecture = lectureService.findLectures(major);
+            ArrayList<Book> all = bookService.findAllBooks();
             modelAndView.setViewName("major/bookdetail");
-            String name = majorService.findById(id);
+            modelAndView.getModel().put("target", major);
+            modelAndView.getModel().put("lectures", lecture);
+            modelAndView.getModel().put("books", all);
         }
-//        else if(url.equals("/book/detail")) {
-//            System.out.println(request.getMethod());
-//            if(request.getMethod().equals("GET")) {
-//                String targetId;
-//                Book booktarget;    Lecture lecturetarget;  InfoMapping target;
-//
-//                modelAndView.setViewName("major/bookdetail");
-//                targetId = request.getParameter("id");
-//                booktarget = bookService.findTarget(targetId);
-//                lecturetarget = lectureService.findTarget(targetId);
-//                target = new InfoMapping(lecturetarget.getLectureNum(),
-//                        lecturetarget.getLectureName(),lecturetarget.getMajorName(),
-//                        lecturetarget.getProfessor(), lecturetarget.getBookNum(), lecturetarget.getGrade(),
-//                        booktarget.getBookName(), booktarget.getBookAuthor(), booktarget.getBookPub(),
-//                        booktarget.getBookPrice(), booktarget.getImageURL());
-//                modelAndView.getModel().put("target", target);
-//            }
-//        }
-        else if(url.equals("/book/pay")) {
-            int memberId = 1;
+        else if(url.equals("/major/pay")) {
+            System.out.println(request.getQueryString());
+            int memberId = (Integer) request.getSession().getAttribute("id");
             int bookNum = Integer.parseInt(request.getParameter("id"));
             int count = Integer.parseInt(request.getParameter("cnt"));
-            int status = Integer.parseInt(request.getParameter("status"));
+            int state = Integer.parseInt(request.getParameter("state"));
             Date today = new java.sql.Date(System.currentTimeMillis());
 
-            BuyBook buy = new BuyBook(memberId, bookNum, status, today, count);
+            BuyBook buy = new BuyBook(memberId, bookNum, state, count, today);
             buyBookService.inputInfo(buy);
         }
         else {

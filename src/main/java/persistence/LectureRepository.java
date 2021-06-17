@@ -2,6 +2,7 @@ package persistence;
 
 import domain.Book;
 import domain.Lecture;
+import domain.Major;
 
 import javax.naming.Context;
 import javax.naming.InitialContext;
@@ -66,5 +67,47 @@ public class LectureRepository {
             }
         }
         return lecturetarget;
+    }
+
+    public ArrayList<Lecture> findLecturesByIdAndGrade(Major major) {
+        Connection conn = null;
+        Statement st = null;
+        ResultSet rs = null;
+        ArrayList<Lecture> lecs = new ArrayList<Lecture>();
+
+        String sql = "SELECT * FROM lecture WHERE majorName = '" + major.getMajorName() + "'";
+
+        try {
+            conn = ds.getConnection();
+        } catch (SQLException e) {
+            // TODO Auto-generated catch block
+            e.printStackTrace();
+        }
+        try {
+            st = conn.createStatement();
+            rs = st.executeQuery(sql);
+            while (rs.next()) {
+                int id = rs.getInt(1);
+                String name = rs.getString(2);
+                String professor = rs.getString(4);
+                int bookNum = rs.getInt(5);
+                int grade = rs.getInt(6);
+                Lecture post = new Lecture(id, name, major.getMajorName(), professor, bookNum, grade);
+                lecs.add(post);
+            }
+        } catch (SQLException e) {
+            // TODO Auto-generated catch block
+            e.printStackTrace();
+        }finally {
+            try {
+                rs.close();
+                st.close();
+                conn.close();
+            } catch (SQLException e) {
+                // TODO Auto-generated catch block
+                e.printStackTrace();
+            }
+        }
+        return lecs;
     }
 }

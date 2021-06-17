@@ -69,4 +69,16 @@ public class Lecture {
     public void setGrade(int grade) {
         this.grade = grade;
     }
+
+    @Override
+    public String toString() {
+        return "Lecture{" +
+                "lectureNum=" + lectureNum +
+                ", lectureName='" + lectureName + '\'' +
+                ", majorName='" + majorName + '\'' +
+                ", professor='" + professor + '\'' +
+                ", bookNum=" + bookNum +
+                ", grade=" + grade +
+                '}';
+    }
 }

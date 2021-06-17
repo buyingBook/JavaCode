@@ -197,7 +197,7 @@ header {
     justify-content: center;
 }
 
-#control button {
+#control form button {
     display: inline;
     width: 45%;
     height: 2.5rem;

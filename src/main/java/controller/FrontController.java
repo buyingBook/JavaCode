@@ -17,7 +17,9 @@ public class FrontController extends HttpServlet{
     private Map<String, Controller> controllerMap = new HashMap<>();
 
     public FrontController() {
+        controllerMap.put("main", new MainController());
         controllerMap.put("major", new MajorController());
+        controllerMap.put("mypage", new MypageController());
     }
     @Override
     protected void service(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
@@ -30,7 +32,7 @@ public class FrontController extends HttpServlet{
         System.out.println("com "+ com);
 
         if(com.equals("/")) {
-            RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/view/index.jsp");
+            RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/view/main.jsp");
             dispatcher.forward(request, response);
         }else {
             String [] tokens = com.split("/");

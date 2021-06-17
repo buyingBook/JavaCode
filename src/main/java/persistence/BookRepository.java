@@ -2,6 +2,8 @@ package persistence;
 
 import domain.Book;
 import domain.Criteria;
+import domain.Major;
+
 import javax.naming.Context;
 import javax.naming.InitialContext;
 import javax.naming.NamingException;
@@ -169,7 +171,7 @@ public class BookRepository {
         return cnt;
     }
 
-    public Book findById(int id){
+    public static Book findById(int id){
         Connection conn = null;
         Statement st = null;
         ResultSet rs = null;
@@ -207,6 +209,48 @@ public class BookRepository {
         }
         return booktarget;
     }
+
+    public ArrayList<Book> findAll() {
+        Connection conn = null;
+        Statement st = null;
+        ResultSet rs = null;
+        String sql = "SELECT * FROM book";
+        ArrayList<Book> books = new ArrayList<Book>();
+        try {
+            conn = ds.getConnection();
+        } catch (SQLException e) {
+            // TODO Auto-generated catch block
+            e.printStackTrace();
+        }
+        try {
+            st = conn.createStatement();
+            rs = st.executeQuery(sql);
+            while (rs.next()) {
+                int id = rs.getInt(1);
+                String name = rs.getString(2);
+                String author = rs.getString(3);
+                String pub = rs.getString(4);
+                int price = rs.getInt(5);
+                String url = rs.getString(6);
+                Book post = new Book(id, name, author, pub, price, url);
+                books.add(post);
+            }
+        } catch (SQLException e) {
+            // TODO Auto-generated catch block
+            e.printStackTrace();
+        }finally {
+            try {
+                rs.close();
+                st.close();
+                conn.close();
+            } catch (SQLException e) {
+                // TODO Auto-generated catch block
+                e.printStackTrace();
+            }
+        }
+        return books;
+    }
+
     public ArrayList<Book> findAll(int idx) {
         Connection conn = null;
         Statement st = null;
@@ -342,6 +386,56 @@ public class BookRepository {
 
         String sql = "SELECT * FROM book JOIN lecture l on book.bookNum = l.bookNum WHERE majorName = '" +major+
                 "' AND grade = " +grade+ " LIMIT "+idx+", 5";
+
+        try {
+            conn = ds.getConnection();
+        } catch (SQLException e) {
+            // TODO Auto-generated catch block
+            e.printStackTrace();
+        }
+        try {
+            st = conn.createStatement();
+            rs = st.executeQuery(sql);
+            while (rs.next()) {
+                int id = rs.getInt(1);
+                String name = rs.getString(2);
+                String author = rs.getString(3);
+                String pub = rs.getString(4);
+                int price = rs.getInt(5);
+                String url = rs.getString(6);
+                Book post = new Book(id, name, author, pub, price, url);
+                books.add(post);
+            }
+        } catch (SQLException e) {
+            // TODO Auto-generated catch block
+            e.printStackTrace();
+        }finally {
+            try {
+                rs.close();
+                st.close();
+                conn.close();
+            } catch (SQLException e) {
+                // TODO Auto-generated catch block
+                e.printStackTrace();
+            }
+        }
+        return books;
+    }
+
+    public ArrayList<Book> findBooks(ArrayList<Integer> ids) {
+        ArrayList<Book> books = new ArrayList<Book>();
+        for (int i = 0; i < ids.size(); i++)
+            books.add(findById(ids.get(i)));
+        return books;
+    }
+
+    public ArrayList<Book> findBooks(Major major) {
+        Connection conn = null;
+        Statement st = null;
+        ResultSet rs = null;
+        ArrayList<Book> books = new ArrayList<Book>();
+
+        String sql = "SELECT * FROM book JOIN lecture l on book.bookNum = l.bookNum WHERE majorName = '" +major.getMajorName()+ "'";
 
         try {
             conn = ds.getConnection();

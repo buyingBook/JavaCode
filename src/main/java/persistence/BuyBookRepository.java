@@ -46,7 +46,7 @@ public class BuyBookRepository {
             pstmt.setInt(1, buy.getMemberId());
             pstmt.setInt(2, buy.getBookNum());
             pstmt.setInt(3, buy.getIsBuy());
-            pstmt.setDate(4, buy.getBuydate());
+            pstmt.setDate(4, buy.getBuyDate());
             pstmt.setInt(5, buy.getCount());
 
             int n = pstmt.executeUpdate();

@@ -1,5 +1,6 @@
 package service;
 
+import domain.Lecture;
 import domain.Major;
 import persistence.MajorRepository;
 
@@ -16,7 +17,7 @@ public class MajorService {
         return majorRepository.findAll(pageStart);
     }
 
-    public String findById(String id) {
+    public Major findById(String id) {
         return majorRepository.findById(id);
     }
 }

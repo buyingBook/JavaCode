@@ -106,7 +106,39 @@ public class MajorRepository {
         return majors;
     }
 
-    public String findById(String id) {
-        return null;
+    public Major findById(String id) {
+        Connection conn = null;
+        Statement st = null;
+        ResultSet rs = null;
+        String sql = "SELECT * FROM major WHERE majorId = " + id;
+        Major target = null;
+        try {
+            conn = ds.getConnection();
+        } catch (SQLException e) {
+            // TODO Auto-generated catch block
+            e.printStackTrace();
+        }
+        try {
+            st = conn.createStatement();
+            rs = st.executeQuery(sql);
+            while (rs.next()) {
+                String name = rs.getString(2);
+                String url = rs.getString(3);
+                target = new Major(Integer.parseInt(id), name, url);
+            }
+        } catch (SQLException e) {
+            // TODO Auto-generated catch block
+            e.printStackTrace();
+        }finally {
+            try {
+                rs.close();
+                st.close();
+                conn.close();
+            } catch (SQLException e) {
+                // TODO Auto-generated catch block
+                e.printStackTrace();
+            }
+        }
+        return target;
     }
 }
