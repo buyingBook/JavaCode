@@ -167,7 +167,7 @@
                 String name = (String)session.getAttribute("id");
                 if(name != null) {
                     out.print(name + "님 환영합니다.");
-                    out.println("<button class = \"logout\" onclick=\"location.href='\\logout'\">로그아웃</button>");
+                    out.println("<button class = \"logout\" onclick=\"location.href='/front/mypage/logout'\">로그아웃</button>");
                 }
             %>
         </h6>
@@ -188,7 +188,7 @@
                 <%
                     if(name != null) {
                         out.print(name+ "님 환영합니다.");
-                        out.println("<button class = \"logout\" onclick=\"location.href='\\logout'\">로그아웃</button>");
+                        out.println("<button class = \"logout\" onclick=\"location.href='/front/mypage/logout'\">로그아웃</button>");
                     }
                 %>
             </h4>
