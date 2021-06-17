@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Context path="/">
+    <Resource
+            name="jdbc/MySQL"
+            type="javax.sql.DataSource"
+            auth="Container"
+            maxActive="30"
+            maxIdle="3"
+            maxWait="3000"
+            username="root"
+            password="112703"
+            testOnBorrow="true"
+            driverClassName="com.mysql.jdbc.Driver"
+            url="jdbc:mysql://localhost/buyingbook?characterEncoding=utf8&amp;serverTimezone=UTC&amp;useSSL=false"/>
+</Context>

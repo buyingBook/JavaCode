@@ -17,7 +17,10 @@ public class FrontController extends HttpServlet{
     private Map<String, Controller> controllerMap = new HashMap<>();
 
     public FrontController() {
-        controllerMap.put("book", new BookController());
+        controllerMap.put("main", new MainController());
+        controllerMap.put("major", new MajorController());
+        controllerMap.put("board", new BoardController());
+        controllerMap.put("mypage", new MypageController());
     }
     @Override
     protected void service(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
@@ -30,7 +33,7 @@ public class FrontController extends HttpServlet{
         System.out.println("com "+ com);
 
         if(com.equals("/")) {
-            RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/view/index.jsp");
+            RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/view/main.jsp");
             dispatcher.forward(request, response);
         }else {
             String [] tokens = com.split("/");
@@ -51,9 +54,5 @@ public class FrontController extends HttpServlet{
 
     private String viewResolver(String viewName) {
         return "/WEB-INF/view/"+viewName+".jsp";
-    }
-
-    private String postViewResolver(String viewName) {
-        return "/front" + viewName;
     }
 }
